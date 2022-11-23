@@ -1,0 +1,57 @@
+LinearLayout		线性布局
+
+android:background	设置背景
+android:layout_height	设置view的高度
+android:layout_width	设置view的宽度
+-wrap_content 		表示包裹内容
+-match_parent		表示填充父控件
+android:orientation	表示设置线性布局空间的摆放方向 默认水平 vertical 竖直方向
+
+RelativeLayout		相对布局
+
+android:layout_below	于……下面
+android:layout_above	于……上方
+android:layout_toRightOf	于……右方
+android:layout_toLeftOf	于……左方
+
+android:layout_aligenLeft	于……左边对齐
+android:layout_alignTop	于……顶部对齐
+android:layout_alignRight	于……右边对齐
+android:layout_alignBottom	于……底部对齐
+android:layout_alignBaseLine	于……基线对齐
+
+android:layout_centerInParent	位于父布局水平正中心
+android:layout_centerHorizontal位于父布局水平居中
+android:layout_centerVertical	位于父布局竖直居中位置
+android:layout_alignParentBottom位于父布局的底端
+
+Textview			文本
+
+android:text		设置文本信息
+android:textColor		设置文本颜色
+android:textSize		设置文本字体大小
+android:textStyle		设置文本字体样式	bold表示加粗 |italic表示斜体
+android:drawableTop	设置文本上方显示的图片
+android:drawableBottom	设置文本下方显示的图片
+android:drawableLeft	设置文本左方显示的图片
+android:drawableRight	设置文本右方显示的图片
+android:autpLink		表示文本为可点击的超链接 phone手机号码 web网站 map地图 none无作用 all全部
+
+EditText			文本框
+android:hint		设置文本框的提示信息
+android:maxLength		设置文本框输入的最大字数
+android:password		设置文本框为密码
+android:inputType		设置文本框的输入类型 软键盘弹出类型 textEmailAddress邮箱 number数字键盘……
+android:imeOptions	设置软键盘中的完成键为相应的功能键  actionSearch 查询  actionSend 发送 actionDone完成 actionNext下一个
+
+Button			按钮
+
+public void onClick(View view){
+           int id=view.getId();  //获取点击控件的id
+           swith(id){
+     	case R.id.btn_1:   //找到的id为btn_1
+	Toast.makeText(context:MainActivity.this.text:"……",Toast.LENGTH_SHORT).show();
+	defult;
+	break;
+}
+}

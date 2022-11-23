@@ -1,0 +1,90 @@
+																					控件
+px:像素
+dp:独立像素
+sp:缩放独立像素
+
+1.TextView:
+	layout_width='(number)dp'
+	layout_height='(number)dp'
+	id="@+id/(id名称)"
+	text="(显示文本)"
+	textColor="[#000000~#FFFFFF]"
+	textStyle="[normal(无效果), bold(加粗), italic(斜体)]"
+	textSize="(number)sp"
+	background="[#000000~#FFFFFF,@drawable/(图片名称.后缀)]"
+	gravity=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
