@@ -14,8 +14,13 @@ sp:缩放独立像素
 	字体风格		android:textStyle="[normal(无效果), bold(加粗), italic(斜体)]"
 	字体大小		android:textSize="(number)sp"
 	控件背景		android:background="[#000000~#FFFFFF,@drawable/(图片名称.后缀)]"
-	控件内元素位置	android:gravity=[]
-
+	控件内元素位置	android:gravity="[
+									top()
+	
+	
+	
+												]"
+	控件父元素位置	android:layout_gravity=[]
 
 
 
