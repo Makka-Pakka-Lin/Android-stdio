@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#Ffc0cb"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lyd_tv_name"
+                style="@style/lydljw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="商品名称：" />
+
+            <EditText
+                android:id="@+id/lyd_et_name"
+                style="@style/lydljw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:hint="请输入名称                                 "
+                android:minHeight="48dp" />
+
+
+            <TextView
+                android:id="@+id/lyd_tv_where"
+                style="@style/lydljw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="销售区域:" />
+
+            <Spinner
+                android:id="@+id/lyd_sp_wan"
+                style="@style/lydljw"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:entries="@array/depart_arr"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/lyd_tv_style"
+                style="@style/lydljw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="商品属性：" />
+
+            <RadioGroup
+                android:id="@+id/lyd_rg_li"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/lyd_rg_jing"
+                    style="@style/lydljw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="内贸商品" />
+
+                <RadioButton
+                    android:id="@+id/lyd_rg_wan"
+                    style="@style/lydljw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="外贸商品" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/lyd_img_ljw"
+                android:layout_width="180dp"
+                android:layout_height="240dp"
+                android:src="@drawable/ljw" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lyd_tv_text"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:id="@+id/lyd_bt_ok"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="清除" />
+
+        <Button
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:id="@+id/lyd_bt_next"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="下一屏" />
+
+        <Button
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:id="@+id/lyd_bt_exit"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="退出" />
+    </LinearLayout>
+
+</LinearLayout>

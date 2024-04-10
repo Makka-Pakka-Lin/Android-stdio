@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="灰色背景"
+        android:id="@+id/menu_option_gray"/>
+    <item
+        android:title="图像背景"
+        android:id="@+id/menu_option_image"/>
+    <item
+        android:title="薪Activity">
+        <menu>
+            <item
+                android:title="非返回跳转"
+                android:id="@+id/menu_option_noback"/>
+            <item
+                android:title="返回式跳转"
+                android:id="@+id/menu_option_back"/>
+        </menu>
+    </item>
+</menu>

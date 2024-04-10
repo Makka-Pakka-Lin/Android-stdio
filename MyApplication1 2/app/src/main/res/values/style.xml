@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="myInfo">
+        <item name="android:textColor">@color/lightcyan</item>
+    </style>
+    <style name="myInfo1">
+        <item name="android:textColor">@color/burlywood</item>
+    </style>
+    <style name="myInfo2">
+        <item name="android:textColor">@color/plum</item>
+    </style>
+    <style name="myInfo3">
+        <item name="android:textColor">@color/lightgray</item>
+    </style>
+</resources>

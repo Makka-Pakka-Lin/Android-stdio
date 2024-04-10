@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">linyudeng</string>
+    <string-array name="depart_arr">
+        <item>中国华东区域</item>
+        <item>中国华南区域</item>
+        <item>中国华北区域</item>
+        <item>中国西部区域</item>
+    </string-array>
+</resources>

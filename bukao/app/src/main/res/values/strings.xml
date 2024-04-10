@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">linyudeng</string>
+    <string-array name="depart_arr">
+        <item>中国大陆</item>
+        <item>美国</item>
+        <item>法国</item>
+        <item>英国</item>
+    </string-array>
+</resources>
