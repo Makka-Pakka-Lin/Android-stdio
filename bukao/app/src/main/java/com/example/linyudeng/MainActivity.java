@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     RadioButton rg_jing,rg_wan;
 
-    String[] major_string={"中国大陆","美国","法国","英国"};
+    String[] major_string={"东北地区" + "华北绝区" + "华中地区" + "华南地区" + "华东地区" };
 
     Button bt_ok,bt_exit,ljw;
 
@@ -79,9 +79,11 @@ public class MainActivity extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         int num =v.getId();
         if (num == R.id.tv_text) {
-            menu.add(0, Menu.FIRST, 0, "样式一");
-            menu.add(0, Menu.FIRST + 1, 0, "样式二");
-            menu.add(0, Menu.FIRST + 2, 0, "样式三");
+            menu.add(0, Menu.FIRST, 0, "军兰色");
+            menu.add(0, Menu.FIRST + 1, 0, "暗绿");
+            menu.add(0, Menu.FIRST + 2, 0, "靛青色");
+            menu.add(0, Menu.FIRST + 3, 0, "灰 色");
+
         }
         super.onCreateContextMenu(menu, v, menuInfo);
     }
@@ -96,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case Menu.FIRST+2:
                 tv_text.setTextAppearance(R.style.myInfo2);
+                break;
+            case Menu.FIRST+3:
+                tv_text.setTextAppearance(R.style.myInfo3);
                 break;
 
         }
@@ -121,23 +126,6 @@ public class MainActivity extends AppCompatActivity {
     private void event(){
         bt_ok.setOnClickListener(View->clear());
         bt_exit.setOnClickListener(View->finish());//代替上面的代码，简约模式   单接口可以用这种lambda，双接口不行
-        ljw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog alertDialog2 = new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("提示")
-                        .setMessage("真诚是杀死自己的必杀技")
-                        .setIcon(R.mipmap.ic_launcher)
-                        .setNegativeButton("关闭", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(MainActivity.this, "这是取消按钮", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .create();
-                alertDialog2.show();
-            }
-        });
 
 
 
