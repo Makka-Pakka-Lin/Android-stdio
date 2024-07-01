@@ -24,6 +24,7 @@ public class FirstFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dbMgr = new DataBaseManager(getContext()); // 初始化数据库管理类
+
     }
 
     @Override
@@ -55,7 +56,7 @@ public class FirstFragment extends Fragment {
 
     private boolean validateInputs() {//判断是否有输入数据
         if (et_db_ISBN.getText().toString().isEmpty() || et_db_title.getText().toString().isEmpty() || et_db_author.getText().toString().isEmpty()) {
-            Toast.makeText(getContext(), "四个都是必填项，请重新填写", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "四个都是必填项，你给我（请）重新填写", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -70,7 +71,7 @@ public class FirstFragment extends Fragment {
                     et_db_publish.getText().toString()
             );
             et_db_id.setText(String.valueOf(id));
-            Toast.makeText(getContext(), "Book Saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "好书保存好了", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -86,7 +87,7 @@ public class FirstFragment extends Fragment {
 
     private void myFind() {
         String isbn = et_db_ISBN.getText().toString();
-        if (isbn.isEmpty()) Toast.makeText(getContext(), "请输入ISBN", Toast.LENGTH_SHORT).show();
+        if (isbn.isEmpty()) Toast.makeText(getContext(), "别偷懒，输入ISBN", Toast.LENGTH_SHORT).show();
         Cursor cursor = dbMgr.getBookByISBN(isbn);
 
         if (cursor.moveToFirst()) {
@@ -121,9 +122,9 @@ public class FirstFragment extends Fragment {
                 // 使用通用函数设置Publish字段的值
             setEditTextValue(cursor, DataBaseManager.PUBLISH_FIELD, et_db_publish);
 
-            Toast.makeText(getContext(), "Book Found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "鬼东东找到了", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(getContext(), "Book Not Found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "(〃￣ω￣〃）ゞ我没有找到的耶", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -138,12 +139,12 @@ public class FirstFragment extends Fragment {
                     et_db_publish.getText().toString()
             );
             if (rows > 0) {
-                Toast.makeText(getContext(), "Book Updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "更新好了ᐠ( ᐢ ᵕ ᐢ )ᐟ", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getContext(), "Update Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "更新失败了▄█▀█●", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(getContext(), "ID cannot be empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "ID不能为空(╯‵皿′)╯︵┻━┻", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -153,12 +154,12 @@ public class FirstFragment extends Fragment {
             long id = Long.parseLong(idStr);
             int rows = dbMgr.deleteBook(id);
             if (rows > 0) {
-                Toast.makeText(getContext(), "Book Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "删了📖∂（*´∀｀*）", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getContext(), "Delete Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "删除失败了( =①ω①=)", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(getContext(), "ID cannot be empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "ID不能为空哦(　ﾟ∀ﾟ) ﾉ♡", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -168,17 +169,38 @@ public class FirstFragment extends Fragment {
         et_db_title.setText("");
         et_db_author.setText("");
         et_db_publish.setText("");
-        Toast.makeText(getContext(), "Fields Cleared", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "༼(*꒪ั❥꒪ั*༽༽清除了", Toast.LENGTH_SHORT).show();
     }
 
     private void myClearMax() {
         new AlertDialog.Builder(getContext())
-                .setTitle("确认删除")
-                .setMessage("确定要删除所有数据库内容吗？此操作不可恢复。")
-                .setPositiveButton("删除", (dialog, which) -> {
-                    Toast.makeText(getContext(), "数据库已清空", Toast.LENGTH_SHORT).show();
-                    dbMgr.onUpgrade(dbMgr.getWritableDatabase(), 1, 1);
-                    myClear();
+                .setTitle("确认删除？")
+                .setMessage("删了，回忆都没有了")
+                .setPositiveButton("继续删除它", (dialog, which) -> {
+
+                    new AlertDialog.Builder(getContext())
+                         .setTitle("真的真的真的删除吗？")
+                            .setMessage("呜呜呜呜😭😭😭😭")
+                            .setPositiveButton("继续删除", (dialog_1, which_1) -> {
+
+                                new AlertDialog.Builder(getContext())
+                                        .setTitle("我们没有结果了吗？")
+                                        .setMessage("呜呜呜呜呜呜呜呜😭😭😭😭呜呜呜呜呜呜呜呜😭😭😭😭")
+                                        .setPositiveButton("没有", (dialog_2, which_2) -> {
+
+                                            Toast.makeText(getContext(), "(;´༎ຶД༎ຶ`)都没了", Toast.LENGTH_SHORT).show();
+                                            dbMgr.onUpgrade(dbMgr.getWritableDatabase(), 1, 1);
+                                            myClear();
+
+                                        })
+                                        .setNegativeButton("最后给你一次机会", (dialog_2, which_2) -> dialog.dismiss()).show();
+//                                Toast.makeText(getContext(), "(;´༎ຶД༎ຶ`)都没了", Toast.LENGTH_SHORT).show();
+//                                dbMgr.onUpgrade(dbMgr.getWritableDatabase(), 1, 1);
+//                                myClear();
+
+                            })
+                            .setNegativeButton("确定不取消吗！", (dialog_1, which_1) -> dialog.dismiss()).show();
+
                 })
                 .setNegativeButton("取消", (dialog, which) -> dialog.dismiss())
                 .create()

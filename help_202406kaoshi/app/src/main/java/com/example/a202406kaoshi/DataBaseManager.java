@@ -48,7 +48,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
     public long addBook(String isbn, String title, String author,String publish) {
         if (isbn == null || isbn.isEmpty() || title == null || title.isEmpty() || author == null || author.isEmpty()|| publish == null || publish.isEmpty() ) {
-            throw new IllegalArgumentException("请填写全部信息");//可以在文字前加*提醒
+            throw new IllegalArgumentException("请填写全部信息(\\#-_-)\\┯━┯");//可以在文字前加*提醒
         }
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -61,7 +61,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
     public Cursor getBookByISBN(String isbn) {
         if (isbn == null || isbn.isEmpty()) {
-            throw new IllegalArgumentException("ISBN cannot be empty");
+            throw new IllegalArgumentException("ISBN不能为空");
         }
         SQLiteDatabase db = getReadableDatabase();
         return db.query(TABLE_NAME, null, ISBN_FIELD + "=?", new String[]{isbn}, null, null, null);
@@ -69,7 +69,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
     public int updateBook(long id, String isbn, String title, String author,String publish) {
         if (id <= 0 || isbn == null || isbn.isEmpty() || title == null || title.isEmpty() || author == null || author.isEmpty()) {
-            throw new IllegalArgumentException("Invalid arguments");
+            throw new IllegalArgumentException("请正确输入所有数据(╯°Д°)╯︵┻━┻");
         }
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -82,7 +82,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
     public int deleteBook(long id) {
         if (id <= 0) {
-            throw new IllegalArgumentException("Invalid ID");
+            throw new IllegalArgumentException("这个鬼玩意删除了");
         }
         SQLiteDatabase db = getWritableDatabase();
         return db.delete(TABLE_NAME, ID_FIELD + "=?", new String[]{String.valueOf(id)});
