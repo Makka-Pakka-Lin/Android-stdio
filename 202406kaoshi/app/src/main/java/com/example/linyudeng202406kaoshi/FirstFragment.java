@@ -1,4 +1,4 @@
-package com.example.a202406kaoshi;
+package com.example.linyudeng202406kaoshi;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -8,14 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.example.a202406kaoshi.R;
+
 public class FirstFragment extends Fragment {
 
-    EditText et_db_id, et_db_ISBN, et_db_title, et_db_author, et_db_publish;
+    TextView vt_db_id;
+    EditText  et_db_ISBN, et_db_title, et_db_author, et_db_publish;
     Button btn_db_save, btn_db_find, btn_db_update, btn_db_delete,btn_db_clear,btn_db_clear_max;
 //    long contrctId; //记录ID的值
     DataBaseManager dbMgr; //编写数据库操作的类
@@ -38,7 +42,7 @@ public class FirstFragment extends Fragment {
         btn_db_clear = view.findViewById(R.id.btn_db_clear);
         btn_db_clear_max = view.findViewById(R.id.btn_db_clear_max);
 
-        et_db_id = view.findViewById(R.id.et_db_id);
+        vt_db_id = view.findViewById(R.id.et_db_id);
         et_db_ISBN = view.findViewById(R.id.et_db_ISBN);
         et_db_title = view.findViewById(R.id.et_db_title);
         et_db_author = view.findViewById(R.id.et_db_author);
@@ -54,7 +58,7 @@ public class FirstFragment extends Fragment {
         return view;
     }
 
-    private boolean validateInputs() {//判断是否有输入数据
+    private boolean validateInputs() {
         if (et_db_ISBN.getText().toString().isEmpty() || et_db_title.getText().toString().isEmpty() || et_db_author.getText().toString().isEmpty()) {
             Toast.makeText(getContext(), "四个都是必填项，你给我（请）重新填写", Toast.LENGTH_SHORT).show();
             return false;
@@ -70,13 +74,21 @@ public class FirstFragment extends Fragment {
                     et_db_author.getText().toString(),
                     et_db_publish.getText().toString()
             );
-            et_db_id.setText(String.valueOf(id));
+            vt_db_id.setText(String.valueOf(id));
             Toast.makeText(getContext(), "好书保存好了", Toast.LENGTH_SHORT).show();
         }
     }
 
     // 通用函数，用于设置EditText的值
     private void setEditTextValue(Cursor cursor, String columnName, EditText editText) {
+        int columnIndex = cursor.getColumnIndex(columnName);
+        if (columnIndex != -1) {
+            editText.setText(cursor.getString(columnIndex));
+        } else {
+            Log.e("DatabaseError", "Column " + columnName + " does not exist in the cursor.");
+        }
+    }
+    private void setTextViewValue(Cursor cursor, String columnName, TextView editText) {
         int columnIndex = cursor.getColumnIndex(columnName);
         if (columnIndex != -1) {
             editText.setText(cursor.getString(columnIndex));
@@ -111,7 +123,7 @@ public class FirstFragment extends Fragment {
 //            et_db_author.setText(cursor.getString(cursor.getColumnIndex(DataBaseManager.AUTHOR_FIELD)));
 //            et_db_publish.setText(cursor.getString(cursor.getColumnIndex(DataBaseManager.PUBLISH_FIELD)));
                 // 使用通用函数设置ID字段的值
-            setEditTextValue(cursor, DataBaseManager.ID_FIELD, et_db_id);
+            setTextViewValue(cursor, DataBaseManager.ID_FIELD, vt_db_id);
 
                 // 使用通用函数设置Title字段的值
             setEditTextValue(cursor, DataBaseManager.TITLE_FIELD, et_db_title);
@@ -129,8 +141,8 @@ public class FirstFragment extends Fragment {
     }
 
     private void myUpdate() {
-        if (validateInputs() && !et_db_id.getText().toString().isEmpty()) {
-            long id = Long.parseLong(et_db_id.getText().toString());
+        if (validateInputs() && !vt_db_id.getText().toString().isEmpty()) {
+            long id = Long.parseLong(vt_db_id.getText().toString());
             int rows = dbMgr.updateBook(
                     id,
                     et_db_ISBN.getText().toString(),
@@ -149,7 +161,7 @@ public class FirstFragment extends Fragment {
     }
 
     private void myDelete() {
-        String idStr = et_db_id.getText().toString();
+        String idStr = vt_db_id.getText().toString();
         if (!idStr.isEmpty()) {
             long id = Long.parseLong(idStr);
             int rows = dbMgr.deleteBook(id);
@@ -164,7 +176,7 @@ public class FirstFragment extends Fragment {
     }
 
     private void myClear(){
-        et_db_id.setText("");
+        vt_db_id.setText("");
         et_db_ISBN.setText("");
         et_db_title.setText("");
         et_db_author.setText("");
@@ -192,8 +204,8 @@ public class FirstFragment extends Fragment {
                                             dbMgr.onUpgrade(dbMgr.getWritableDatabase(), 1, 1);
                                             myClear();
 
-                                        })
-                                        .setNegativeButton("最后给你一次机会", (dialog_2, which_2) -> dialog.dismiss()).show();
+                                        }).show();
+//                                        .setNegativeButton("最后给你一次机会", (dialog_2, which_2) -> dialog.dismiss()).show();
 //                                Toast.makeText(getContext(), "(;´༎ຶД༎ຶ`)都没了", Toast.LENGTH_SHORT).show();
 //                                dbMgr.onUpgrade(dbMgr.getWritableDatabase(), 1, 1);
 //                                myClear();

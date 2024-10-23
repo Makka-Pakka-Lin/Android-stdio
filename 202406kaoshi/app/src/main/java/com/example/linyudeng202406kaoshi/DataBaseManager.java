@@ -1,4 +1,4 @@
-package com.example.a202406kaoshi;
+package com.example.linyudeng202406kaoshi;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,8 +11,6 @@ import androidx.annotation.Nullable;
 public class DataBaseManager extends SQLiteOpenHelper {
 
     public static final String TABLE_NAME = "books";
-    //public static final String AMOUNT = "sqlite_sequence";
-    //public static final String SEQ_FIELD = "seq";
 
     public static final String ID_FIELD = "_id";
     public static final String ISBN_FIELD = "isbn";
@@ -21,7 +19,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public static final String PUBLISH_FIELD = "publish";
 
     public DataBaseManager(@Nullable Context context) {
-        super(context, "books_db", null, 1);
+        super(context, "books_db2", null, 1);
     }
 
     @Override
@@ -88,12 +86,4 @@ public class DataBaseManager extends SQLiteOpenHelper {
         return db.delete(TABLE_NAME, ID_FIELD + "=?", new String[]{String.valueOf(id)});
     }
 
-//    public void clearDatabase() {
-//        SQLiteDatabase db = getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(SEQ_FIELD, 1);
-//        onUpgrade();
-//        db.delete(TABLE_NAME, null, null);
-//        db.update(AMOUNT, values, null, null);
-//    }
 }

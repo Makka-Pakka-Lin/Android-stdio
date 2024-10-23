@@ -1,4 +1,4 @@
-package com.example.a202406kaoshi;
+package com.example.linyudeng202406kaoshi;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.a202406kaoshi.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;

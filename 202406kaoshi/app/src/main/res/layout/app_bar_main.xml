@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity">
+    tools:context="com.example.linyudeng202406kaoshi.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -18,8 +18,8 @@
             app:layout_scrollFlags="scroll"
             app:titleCollapseMode="scale"
             app:title="期末考试"
-            app:expandedTitleTextColor="@color/yellow"
-            app:collapsedTitleTextColor="@color/white">
+            app:expandedTitleTextColor="@color/thistle"
+            app:collapsedTitleTextColor="@color/darkgreen">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -45,8 +45,8 @@
             app:tabIndicator="@color/white"
             app:tabIndicatorHeight="4dp"
             app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/yellow"
-            app:tabTextColor="@color/white" />
+            app:tabSelectedTextColor="@color/thistle"
+            app:tabTextColor="@color/darkgreen" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

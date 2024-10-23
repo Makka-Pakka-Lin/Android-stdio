@@ -16,7 +16,7 @@
 <!--            android:name=".header"-->
 <!--            android:exported="false" />-->
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.linyudeng202406kaoshi.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
